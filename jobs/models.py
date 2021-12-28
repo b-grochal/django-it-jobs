@@ -9,6 +9,9 @@ class Job(models.Model):
     city = models.CharField(max_length=255)
     country = models.CharField(max_length=255)
 
+    def __str__(self):
+        return '%s - %s - %s - %s' % (self.company_name, self.name, self.city, self.country)
+
 class Application(models.Model):
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
