@@ -17,3 +17,4 @@ class Application(models.Model):
     city_of_residence = models.CharField(max_length=255)
     country_of_residence = models.CharField(max_length=255)
     personal_description = models.TextField()
+    job = models.ForeignKey(Job, on_delete=models.CASCADE, related_name='applications', related_query_name='application')
