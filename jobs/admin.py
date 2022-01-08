@@ -9,6 +9,14 @@ class JobAdmin(admin.ModelAdmin):
 
 @admin.register(Application)
 class ApplicationAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('pk', 'first_name', 'last_name', 'email', 'job')
+    list_filter = ['job__name']
+    search_fields = ['email']
+
+    def has_add_permission(self, request):
+        return False
+
+    def has_change_permission(self, request, obj=None):
+        return False
 
 admin.site.site_header = "IT Jobs Admin Panel"
